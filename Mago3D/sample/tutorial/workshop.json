@@ -1,0 +1,31 @@
+{
+	"attributes": {
+		"isPhysical": false,
+		"nodeType": "root",
+		"projectType": "citygml"
+	},
+	"children": [
+		{
+			"attributes": {
+				"isPhysical": true,
+				"nodeType": "citygml"
+			},
+			"children": [],
+			"data_key": "buildings",
+			"data_name": "buildings",
+			"mapping_type": "origin",
+            "latitude": 40.708025,
+            "longitude": -74.0090329,
+            "height": 0,
+            "heading": 0,
+            "pitch": 0,
+			"roll": 0
+		}
+	],
+	"parent": 0,
+	"depth": 1,
+	"view_order": 2,
+	"data_key": "citygml",
+	"data_name": "citygml",
+    "mapping_type": "origin"
+}
