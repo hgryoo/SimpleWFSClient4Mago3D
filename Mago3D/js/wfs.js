@@ -55,7 +55,7 @@ exports.getFeatures = function(req, res) {
   console.log(request);
   //text/xml; subtype=gml3d/3.1.1
   var rest = require('restler');
-  rest.post('http://164.125.37.201:8080/geoserver/wfs', {
+  rest.post('http://127.0.0.1:8080/geoserver/wfs', {
     data : request
   }).on('complete', function(data) {
     res.send(data);
