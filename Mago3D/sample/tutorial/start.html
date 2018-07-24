@@ -130,7 +130,6 @@
 			dataType: "json",
 			success: function(serverPolicy){
 				loadData(viewer, renderDivId, serverPolicy);
-				readTextFile("../../buildings.out");
 			},
 			error: function(e){
 				alert(e.responseText);
@@ -145,7 +144,8 @@
 			 if(rawFile.readyState === 4) {
 				 if(rawFile.status === 200 || rawFile.status == 0) {
 					 var allText = rawFile.responseText;
-					 alert(allText);
+					 var bids = allText.split(/\r\n|\r|\n/).map(x => x.substring(0, 10));
+					 changeColorAPI(managerFactory, "workshop.json", "buildings", bids, "isMain=true", "255,255,255");
 				 }
 			 }
 		 };
@@ -185,6 +185,7 @@
 							handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
 						    	handler.setInputAction(followMouse, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
 
+							readTextFile('../../buildings.out');
 						}
 						dataCount++;
 					},
