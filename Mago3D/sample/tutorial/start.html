@@ -130,11 +130,26 @@
 			dataType: "json",
 			success: function(serverPolicy){
 				loadData(viewer, renderDivId, serverPolicy);
+				readTextFile("../../buildings.out");
 			},
 			error: function(e){
 				alert(e.responseText);
 			}
 		});
+	}
+
+	function readTextFile(file) {
+		var rawFile = new XMLHttpRequest();
+		rawFile.open("GET", file, false);
+		rawFile.onreadystatechange = function () {
+			 if(rawFile.readyState === 4) {
+				 if(rawFile.status === 200 || rawFile.status == 0) {
+					 var allText = rawFile.responseText;
+					 alert(allText);
+				 }
+			 }
+		 };
+		rawFile.send(null);
 	}
 
 	function loadData(viewer, renderDivId, serverPolicy) {
