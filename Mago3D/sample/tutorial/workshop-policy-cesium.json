@@ -34,8 +34,8 @@
   "geo_init_duration": 3,
   "geo_init_default_terrain": "",
   "geo_init_default_fov": 0,
-  "geo_lod0": "15",
-  "geo_lod1": "50",
+  "geo_lod0": "5000",
+  "geo_lod1": "50000",
   "geo_lod2": "999999",
   "geo_lod3": "9999999",
   "geo_lod4": "99999999",
@@ -98,8 +98,8 @@
   "content_user_group_root": "Mago3D",
   "content_server_group_root": "Mago3D",
   "content_data_group_root": "Mago3D",
-  "site_name": "Mago3D",
+  "site_name": "GeoServer 3D Demo",
   "site_admin_mobile_phone": "000-0000-0000",
-  "site_admin_email": "test@test.com",
-  "insert_date": "2017-06-07 10:31:03.049862"
+  "site_admin_email": "hgryoo@pnu.edu",
+  "insert_date": "2018-07-24 10:31:03.049862"
 }
