@@ -144,7 +144,7 @@
 			 if(rawFile.readyState === 4) {
 				 if(rawFile.status === 200 || rawFile.status == 0) {
 					 var allText = rawFile.responseText;
-					 var bids = allText.split(/\r\n|\r|\n/).map(x => x.substring(0, 10));
+					 var bids = allText.split(/\r\n|\r|\n/).map(x => x.substring(0, 10).trim());
 					 changeColorAPI(managerFactory, "workshop.json", "buildings", bids, "isMain=true", "255,255,255");
 				 }
 			 }
