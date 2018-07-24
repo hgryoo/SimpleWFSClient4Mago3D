@@ -84,7 +84,7 @@
     app.get(knownTilesetFormats, checkGzipAndNext);
 
     app.use(express.static(__dirname));
-    app.use(express.static(path.join(__dirname, "/sample/tutorial")));
+    app.use(express.static(path.join(__dirname, "/sample/tutorial/")));
 
     function getRemoteUrlFromParam(req) {
         var remoteUrl = req.params[0];
