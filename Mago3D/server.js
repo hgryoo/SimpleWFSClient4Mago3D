@@ -10,6 +10,7 @@
     var fs = require('fs');
     var url = require('url');
     var request = require('request');
+    var path = require('path');
 
     var gzipHeader = Buffer.from('1F8B08', 'hex');
 
@@ -83,6 +84,7 @@
     app.get(knownTilesetFormats, checkGzipAndNext);
 
     app.use(express.static(__dirname));
+    app.use(express.static(path.join(__dirname, /sample/tutorial)));
 
     function getRemoteUrlFromParam(req) {
         var remoteUrl = req.params[0];

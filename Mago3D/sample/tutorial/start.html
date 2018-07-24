@@ -93,7 +93,7 @@
   <div id="dialog-result" title="Web Feature Service Response"></div>
 <script>
 	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('chrome') < 0) { 
+	if(agent.indexOf('chrome') < 0) {
 		alert("This page is optimized for the Chrome browser for massive data processing.\n Please use the Chrome browser for seamless service.");
 	}
 
@@ -122,7 +122,7 @@
 	var canvas;
 	var camera;
 	var handler;
-	
+
     // mago3d 시작, 정책 데이터 파일을 로딩
 	function magoStart(viewer, renderDivId, imagePath) {
 		$.ajax({
@@ -137,16 +137,16 @@
 			}
 		});
 	}
-		
+
 	function loadData(viewer, renderDivId, serverPolicy) {
 		if(serverPolicy.geo_data_default_projects === null || serverPolicy.geo_data_default_projects.length < 1) {
-			managerFactory = new ManagerFactory(viewer, renderDivId, serverPolicy, null, null, null, imagePath);	
+			managerFactory = new ManagerFactory(viewer, renderDivId, serverPolicy, null, null, null, imagePath);
 		} else {
 			var defaultProjectArray = serverPolicy.geo_data_default_projects;
 			var projectIdArray = new Array(defaultProjectArray.length);
 			var projectDataArray = new Array(defaultProjectArray.length);
 			var projectDataFolderArray = new Array(defaultProjectArray.length);
-			
+
 			var dataCount = 0;
 			defaultProjectArray.forEach(function(projectId, index) {
 				projectIdArray[index] = projectId;
@@ -182,7 +182,7 @@
 		}
 	}
 
-	
+
 
 	function createManagerFactory
 (viewer, renderDivId, serverPolicy, projectIdArray, projectDataArray, projectDataFolderArray, imagePath) {
@@ -194,7 +194,7 @@
 		    heading: 'Click Object Info',
 		    text: [
 		    	'projectId : ' + projectId,
-		        'dataKey : ' + dataKey, 
+		        'dataKey : ' + dataKey,
 		        'objectId : ' + objectId,
 		        'latitude : ' + latitude,
 		        'longitude : ' + longitude,
@@ -207,7 +207,7 @@
 			hideAfter: 5000,
 			icon: 'info',
 			position : 'bottom-right'
-		});	
+		});
 	}
 
 </script>
