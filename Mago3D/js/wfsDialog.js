@@ -50,13 +50,13 @@ $( function() {
   $( "#send-wfs-building" ).button().on("click", function() {
     $.post("/wfs", {filter : filter("geom", "Intersects", queryType, points, height), typeName : "footprint", properteis : ["part_id"]}, function(data) {
         lastResult = data;
-        console.log(lastResult);
+        //console.log(lastResult);
         $xml = $( $.parseXML( data ) );
         highlightedEntities = [];
         $ids = $xml.find("topp\\:part_id").each(function() {
           var $id = $(this);
           var entity = entityMap[getIdentifier($id.text())];
-          console.log($id.text());
+          //console.log($id.text());
           highlightedEntities = highlightedEntities.concat(entity);
         });
     });
@@ -66,7 +66,7 @@ $( function() {
   $( "#send-wfs-indoor" ).button().on("click", function() {
     $.post("/wfs", {filter : filter("geom", "Intersects", queryType, points, height), typeName : "buildings", properties : ["bid"]}, function(data) {
         lastResult = data;
-        console.log(lastResult);
+        //console.log(lastResult);
         $xml = $( $.parseXML( data ) );
         clearHighlightEntities();
         $ids = $xml.find("topp\\:bid").each(function() {

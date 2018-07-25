@@ -44,7 +44,7 @@ function pointsToPolyline(points) {
 
 function pointsToPolygon(points) {
   var gml = "<gml:Surface><gml:patches>";
-  
+
   for(var i = 0; i < points.length; i = i + 3) {
   	gml += "<gml:PolygonPatch><gml:exterior><gml:LinearRing>";
   	for(var j = 0; j < 3; j++) {
@@ -53,7 +53,7 @@ function pointsToPolygon(points) {
   	gml += "<gml:pos>" + (points[i][0]) + " " + (points[i][1]) + " " + (points[i][2] / 0.3048) + "</gml:pos>";
   	gml += "</gml:LinearRing></gml:exterior></gml:PolygonPatch>";
   }
-  
+
   gml += "</gml:patches></gml:Surface>";
   return gml;
 }
@@ -94,10 +94,10 @@ function pointsToSolid(carto, height) {
 function changeLabel(isShow, input, result) {
 	$("input:radio[name='labelInfo']:radio[value='" + isShow + "']").prop("checked", true);
 	changeLabelAPI(managerFactory, isShow);
-       
+
         if(isShow) {
-	     return resultPoint  =  getCoordinateRelativeToBuildingAPI (managerFactory, "workshop.json", "buildings", input,  result ); 
-             //return resultPoint  =  getAbsoluteCoodinateOfBuildingPointAPI (managerFactory, "workshop.json", "buildings", input,  result ); 
+	     return resultPoint  =  getCoordinateRelativeToBuildingAPI (managerFactory, "workshop.json", "buildings", input,  result );
+             //return resultPoint  =  getAbsoluteCoodinateOfBuildingPointAPI (managerFactory, "workshop.json", "buildings", input,  result );
         }
 }
 
@@ -128,7 +128,7 @@ function filter(propertyName, filterType, geomType, points, height) {
 	realPoints.push(newP);
     }
     //var carto = Cesium.Ellipsoid.WGS84.cartesianArrayToCartographicArray(points);
-    
+
     console.log(realPoints)
     */
 
@@ -144,9 +144,9 @@ function filter(propertyName, filterType, geomType, points, height) {
     } else if(geomType == "Solid") {
     queryGeom = pointsToSolid(realPoints, height);
     }
-    
-    console.log(queryGeom);
-    
+
+    //console.log(queryGeom);
+
     filterTemplate += queryGeom;
 
     filterTemplate += "</ogc:" + filterType + "> \
@@ -160,6 +160,6 @@ function triangulate(myvertices, interior) {
 	for(var i = 0; i < triangle.length; i++) {
 		partition.push([ myvertices[triangle[i] * 3], myvertices[triangle[i] * 3 + 1], myvertices[triangle[i] * 3 + 2] ]);
 	}
-	
+
 	return partition;
 }
