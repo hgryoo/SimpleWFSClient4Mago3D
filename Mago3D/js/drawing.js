@@ -75,7 +75,7 @@ var drawMouse = function(click) {
     var cartesianPosition = Cesium.Cartesian3.fromDegrees(cartoWithHeight[0], cartoWithHeight[1], cartoWithHeight[2]);
     cartoPoints.push(cartoWithHeight);
     points.push(cartesianPosition);
-    console.log(cartoPoints);
+    //console.log(cartoPoints);
     drawGeom();
   }
 }
