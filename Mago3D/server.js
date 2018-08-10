@@ -164,12 +164,8 @@
         });
     });
 
-    var server = app.listen(argv.port, argv.public ? undefined : 'localhost', function() {
-        if (argv.public) {
-            console.log('Mago3D server running publicly.  Connect to http://localhost:%d/', server.address().port);
-        } else {
-            console.log('Mago3D development server running locally.  Connect to http://localhost:%d/', server.address().port);
-        }
+    var server = app.listen(argv.port, undefined, function() {
+	    console.log('Mago3D server running publicly.  Connect to http://localhost:%d/', server.address().port);
     });
 
     server.on('error', function (e) {
