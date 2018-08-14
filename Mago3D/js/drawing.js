@@ -92,7 +92,17 @@ function drawGeom() {
     type = 4;
   }
 
+  if(points.length > 2) {
+    if(type >= 3) {
+	if(points.length == 4) {
+		points.pop();
+		return;
+	}
+    }
+  }
+
   $("#draw-done").button("disable");
+
   cesium.scene.primitives.remove(primitiveCollection);
   primitiveCollection = new Cesium.PrimitiveCollection();
   if(type == 1) {
@@ -158,25 +168,25 @@ function drawGeom() {
   }
   if(points.length > 2) {
     if(type >= 3) {
-        ps.push(ps[0]);
-        var instance = new Cesium.GeometryInstance({
-          geometry : new Cesium.PolygonGeometry({
-                        polygonHierarchy : new Cesium.PolygonHierarchy(
-                          ps
-                        ),
-                        //material : Cesium.Color.BLUE.withAlpha(0.01),
-                        perPositionHeight : true
-                        //outline : true,
-                        //outlineColor : Cesium.Color.BLACK.withAlpha(0.1),
-                        //outlineWidth : 2.0
-                    })
-        })
-        primitiveCollection.add(new Cesium.Primitive({
-          geometryInstances : instance,
-          appearance : new Cesium.MaterialAppearance({
-            material : Cesium.Material.fromType('Color')
-          })
-        }));
+	ps.push(ps[0]);
+	var instance = new Cesium.GeometryInstance({
+	  geometry : new Cesium.PolygonGeometry({
+	                polygonHierarchy : new Cesium.PolygonHierarchy(
+	                  ps
+	                ),
+	                //material : Cesium.Color.BLUE.withAlpha(0.01),
+	                perPositionHeight : true
+	                //outline : true,
+	                //outlineColor : Cesium.Color.BLACK.withAlpha(0.1),
+	                //outlineWidth : 2.0
+	            })
+	})
+	primitiveCollection.add(new Cesium.Primitive({
+	  geometryInstances : instance,
+	  appearance : new Cesium.MaterialAppearance({
+	    material : Cesium.Material.fromType('Color')
+	  })
+	}));
     }
     if(type >= 4) {
       var instance = new Cesium.GeometryInstance({
